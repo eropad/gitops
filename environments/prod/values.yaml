@@ -1,4 +1,5 @@
 charts:
   - cert-manager
   - ingress-nginx
+  - kubernetes-reflector
 repoUrl: repoUrl
