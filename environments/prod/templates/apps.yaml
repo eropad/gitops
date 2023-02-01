@@ -1,4 +1,4 @@
-{{ range $chart := .Values.charts }}
+{{ range $chart := $.Values.charts }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/eropad/gitops.git
+    repoURL: {{ $.Values.repoUrl }}
     targetRevision: HEAD
     path: charts/{{ $chart }}
   destination:
