@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ghost
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
+spec:
+  rules:
+    - host: stories.lovelustpassion.live
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ghost
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - stories.lovelustpassion.live
+      secretName: stories.lovelustpassion.live-tls

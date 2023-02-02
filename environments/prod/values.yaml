@@ -2,4 +2,5 @@ charts:
   - cert-manager
   - ingress-nginx
   - external-dns
+  - ghost
 repoUrl: repoUrl
