@@ -7,7 +7,7 @@ metadata:
     external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
 spec:
   rules:
-    - host: stories.lovelustpassion.live
+    - host: stories.{{ $.Values.domain }}
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -18,5 +18,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - stories.lovelustpassion.live
-      secretName: stories.lovelustpassion.live-tls
+        - stories.{{ $.Values.domain }}
+      secretName: ghost-ing-tls

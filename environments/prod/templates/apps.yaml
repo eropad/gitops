@@ -11,6 +11,10 @@ spec:
     repoURL: {{ $.Values.repoUrl }}
     targetRevision: HEAD
     path: charts/{{ $chart }}
+    helm:
+      parameters:
+        - name: domain
+          value: {{ $.Values.domain }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $chart }}

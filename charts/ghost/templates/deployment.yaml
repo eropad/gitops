@@ -41,4 +41,4 @@ spec:
                   name: do-db-default-credentials
                   key: password
             - name: url
-              value: https://stories.lovelustpassion.live/
+              value: https://stories.{{ $.Values.domain }}/

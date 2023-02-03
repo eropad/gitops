@@ -4,3 +4,4 @@ charts:
   - external-dns
   - ghost
 repoUrl: repoUrl
+domain: domain
