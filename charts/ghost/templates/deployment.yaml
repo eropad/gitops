@@ -14,3 +14,31 @@ spec:
       containers:
       - name: ghost
         image: ghost:5
+        env:
+            - name: database__connection__host
+              valueFrom:
+                configMapKeyRef:
+                  name: do-db-private-connection
+                  key: host
+            - name: database__connection__port
+              valueFrom:
+                configMapKeyRef:
+                  name: do-db-private-connection
+                  key: port
+            - name: database__connection__database
+              valueFrom:
+                configMapKeyRef:
+                  name: do-db-private-connection
+                  key: database
+            - name: database__connection__user
+              valueFrom:
+                secretKeyRef:
+                  name: do-db-default-credentials
+                  key: username
+            - name: database__connection__password
+              valueFrom:
+                secretKeyRef:
+                  name: do-db-default-credentials
+                  key: password
+            - name: url
+              value: https://stories.lovelustpassion.live/

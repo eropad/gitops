@@ -1,0 +1,11 @@
+apiVersion: databases.digitalocean.com/v1alpha1
+kind: DatabaseCluster
+metadata:
+  name: do-db
+spec:
+  engine: mysql
+  version: '8'
+  numNodes: 1
+  size: db-s-1vcpu-1gb
+  region: blr1
+  name: do-db
