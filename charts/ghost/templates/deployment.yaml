@@ -18,27 +18,51 @@ spec:
             - name: database__connection__host
               valueFrom:
                 configMapKeyRef:
+                  {{ if $.Values.prefix.enabled }}
+                  name: {{ $.Values.prefix.value }}-do-db-private-connection
+                  {{ else }}
                   name: do-db-private-connection
+                  {{ end }}
                   key: host
             - name: database__connection__port
               valueFrom:
                 configMapKeyRef:
+                  {{ if $.Values.prefix.enabled }}
+                  name: {{ $.Values.prefix.value }}-do-db-private-connection
+                  {{ else }}
                   name: do-db-private-connection
+                  {{ end }}
                   key: port
             - name: database__connection__database
               valueFrom:
                 configMapKeyRef:
+                  {{ if $.Values.prefix.enabled }}
+                  name: {{ $.Values.prefix.value }}-do-db-private-connection
+                  {{ else }}
                   name: do-db-private-connection
+                  {{ end }}
                   key: database
             - name: database__connection__user
               valueFrom:
                 secretKeyRef:
+                  {{ if $.Values.prefix.enabled }}
+                  name: {{ $.Values.prefix.value }}-do-db-default-credentials
+                  {{ else }}
                   name: do-db-default-credentials
+                  {{ end }}
                   key: username
             - name: database__connection__password
               valueFrom:
                 secretKeyRef:
+                  {{ if $.Values.prefix.enabled }}
+                  name: {{ $.Values.prefix.value }}-do-db-default-credentials
+                  {{ else }}
                   name: do-db-default-credentials
+                  {{ end }}
                   key: password
             - name: url
+              {{ if $.Values.prefix.enabled }}
+              value: https://{{ $.Values.prefix.value }}-stories.{{ $.Values.domain }}/
+              {{ else }}
               value: https://stories.{{ $.Values.domain }}/
+              {{ end }}

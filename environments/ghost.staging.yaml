@@ -1,0 +1,3 @@
+prefix:
+  enabled: true
+  value: staging

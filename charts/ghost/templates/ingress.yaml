@@ -7,7 +7,11 @@ metadata:
     external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
 spec:
   rules:
+    {{ if $.Values.prefix.enabled }}
+    - host: {{ $.Values.prefix.value }}-stories.{{ $.Values.domain }}
+    {{ else }}
     - host: stories.{{ $.Values.domain }}
+    {{ end }}
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -18,5 +22,9 @@ spec:
                   number: 80
   tls:
     - hosts:
+        {{ if $.Values.prefix.enabled }}
+        - {{ $.Values.prefix.value }}-stories.{{ $.Values.domain }}
+        {{ else }}
         - stories.{{ $.Values.domain }}
+        {{ end }}
       secretName: ghost-ing-tls

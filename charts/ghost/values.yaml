@@ -1,1 +1,4 @@
 domain: domain
+prefix:
+  enabled: false
+  value: value

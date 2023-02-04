@@ -1,11 +1,19 @@
 apiVersion: databases.digitalocean.com/v1alpha1
 kind: DatabaseCluster
 metadata:
+  {{ if $.Values.prefix.enabled }}
+  name: {{ $.Values.prefix.value }}-do-db
+  {{ else }}
   name: do-db
+  {{ end }}
 spec:
   engine: mysql
   version: '8'
   numNodes: 1
   size: db-s-1vcpu-1gb
   region: blr1
+  {{ if $.Values.prefix.enabled }}
+  name: {{ $.Values.prefix.value }}-do-db
+  {{ else }}
   name: do-db
+  {{ end }}
