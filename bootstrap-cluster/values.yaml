@@ -6,11 +6,11 @@ environments:
   - name: prod
     charts:
       - ghost
-  # - name: dev
-  #   charts:
-  #     - ghost
-  # - name: staging
-  #   charts:
-  #     - ghost
+  - name: dev
+    charts:
+      - ghost
+  - name: staging
+    charts:
+      - ghost
 repoUrl: repoUrl
 domain: domain
