@@ -42,3 +42,20 @@ spec:
                   key: password
             - name: url
               value: https://stories.{{ $.Values.domain }}/
+            - name: mail__transport
+              value: SMTP
+            - name: mail__options__service
+              value: Mailgun
+            - name: mail__options__host
+              value: smtp.eu.mailgun.org
+            - name: mail__options__port
+              value: '465'
+            - name: mail__options__secure
+              value: 'true'
+            - name: mail__options__auth__user
+              value: postmaster@mg.lovelustpassion.live
+            - name: mail__options__auth__pass
+              valueFrom:
+                secretKeyRef:
+                  name: smtp-postmaster-credentials
+                  key: auth_pass
