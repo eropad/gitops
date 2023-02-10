@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: ghost
-        image: ghost:5
+        image: lovellfelix/ghost-s3-storage:v5.25.0
         env:
             - name: database__connection__host
               valueFrom:
@@ -59,3 +59,24 @@ spec:
                 secretKeyRef:
                   name: smtp-postmaster-credentials
                   key: auth_pass
+            - name: storage__active
+              value: s3
+            - name: GHOST_STORAGE_ADAPTER_S3_ENDPOINT
+              value: nyc3.digitaloceanspaces.com
+            - name: GHOST_STORAGE_ADAPTER_S3_ACL
+              value: public-read
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: AWS_ACCESS_KEY_ID
+            - name: GHOST_STORAGE_ADAPTER_S3_PATH_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: GHOST_STORAGE_ADAPTER_S3_PATH_BUCKET
