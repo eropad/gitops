@@ -3,8 +3,10 @@ kind: Ingress
 metadata:
   name: ghost
   annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 8m
     cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
+    nginx.ingress.kubernetes.io/proxy-body-size: 8m
 spec:
   rules:
     {{ if $.Values.prefix.enabled }}
