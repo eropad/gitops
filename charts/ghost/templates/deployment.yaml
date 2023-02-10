@@ -62,7 +62,10 @@ spec:
             - name: storage__active
               value: s3
             - name: GHOST_STORAGE_ADAPTER_S3_ENDPOINT
-              value: nyc3.digitaloceanspaces.com
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: GHOST_STORAGE_ADAPTER_S3_ENDPOINT
             - name: GHOST_STORAGE_ADAPTER_S3_ACL
               value: public-read
             - name: AWS_SECRET_ACCESS_KEY
@@ -80,3 +83,8 @@ spec:
                 secretKeyRef:
                   name: s3-credentials
                   key: GHOST_STORAGE_ADAPTER_S3_PATH_BUCKET
+            - name: GHOST_STORAGE_ADAPTER_S3_ASSET_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: s3-credentials
+                  key: GHOST_STORAGE_ADAPTER_S3_ASSET_HOST
