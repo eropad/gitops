@@ -2,3 +2,4 @@ domain: domain
 prefix:
   enabled: false
   value: value
+region: region

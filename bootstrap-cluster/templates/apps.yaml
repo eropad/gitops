@@ -15,6 +15,8 @@ spec:
       parameters:
         - name: domain
           value: {{ $.Values.domain }}
+        - name: region
+          value: {{ $.Values.region }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $chart }}
@@ -48,6 +50,8 @@ spec:
       parameters:
         - name: domain
           value: {{ $.Values.domain }}
+        - name: region
+          value: {{ $.Values.region }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $env.name }}-{{ $chart }}

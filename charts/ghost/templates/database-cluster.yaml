@@ -7,7 +7,7 @@ spec:
   version: '8'
   numNodes: 1
   size: db-s-1vcpu-1gb
-  region: blr1
+  region: {{ $.Values.region }}
   {{ if $.Values.prefix.enabled }}
   name: {{ $.Values.prefix.value }}-do-db
   {{ else }}
