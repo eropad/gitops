@@ -2,6 +2,7 @@ shared:
   - cert-manager
   - ingress-nginx
   - external-dns
+  - reflector
 environments:
   - name: prod
     charts:
