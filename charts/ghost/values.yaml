@@ -3,3 +3,5 @@ prefix:
   enabled: false
   value: value
 region: region
+s3Endpoint: digitaloceanspaces.com
+doBucket: eropad-lovelustpassion
