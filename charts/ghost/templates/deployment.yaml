@@ -41,7 +41,7 @@ spec:
                   name: do-db-default-credentials
                   key: password
             - name: url
-              value: https://stories.{{ $.Values.domain }}/
+              value: https://stories.{{ $.Values.domain }}
             - name: mail__transport
               value: SMTP
             - name: mail__options__service
