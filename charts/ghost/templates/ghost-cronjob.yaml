@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ghost
+spec:
+  schedule: 0 */2 * * *
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          imagePullSecrets:
+            - name: regcred
+          containers:
+          - name: ghost
+            image: registry.digitalocean.com/eropad/eropad:2f3acadbe5078e8253a085b6130464e831dbc3ae
+            env:
+              name: BASE_DOMAIN
+              value: {{ $.Values.domain }}
+              name: OPENAI_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ghost-creds
+                  key: OPENAI_SECRET
+              name: GHOST_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ghost-creds
+                  key: GHOST_PASSWORD
+              name: MAILGUN_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ghost-creds
+                  key: MAILGUN_API_KEY
+              name: MAILGUN_DOMAIN
+              valueFrom:
+                secretKeyRef:
+                  name: ghost-creds
+                  key: MAILGUN_DOMAIN
+              name: MAILGUN_BASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ghost-creds
+                  key: MAILGUN_BASE_URL
