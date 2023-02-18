@@ -1,3 +1,4 @@
 prefix:
   enabled: true
   value: staging
+image: registry.digitalocean.com/eropad/eropad:staging

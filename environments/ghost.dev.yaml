@@ -1,3 +1,4 @@
 prefix:
   enabled: true
   value: dev
+image: registry.digitalocean.com/eropad/eropad:dev

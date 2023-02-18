@@ -5,3 +5,4 @@ prefix:
 region: region
 s3Endpoint: digitaloceanspaces.com
 doBucket: eropad-lovelustpassion
+image: image
