@@ -13,7 +13,7 @@ spec:
             - name: regcred
           containers:
           - name: ghost
-            image: registry.digitalocean.com/eropad/eropad:2f3acadbe5078e8253a085b6130464e831dbc3ae
+            image: registry.digitalocean.com/eropad/eropad:4fe9266cc8aaf65ad685cd73e97581c976803036
             env:
             - name: BASE_DOMAIN
               value: {{ $.Values.domain }}
