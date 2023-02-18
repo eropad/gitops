@@ -5,6 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 8m
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
     nginx.ingress.kubernetes.io/proxy-body-size: 8m
 spec:
