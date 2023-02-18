@@ -4,7 +4,7 @@ metadata:
   name: ghost
 spec:
   ports:
-    - port: 443
+    - port: 80
       targetPort: 2368
   selector:
     app.kubernetes.io/name: ghost
