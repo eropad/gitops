@@ -1,4 +1,0 @@
-external-dns:
-  provider: digitalocean
-  digitalocean:
-    secretName: do-creds
