@@ -1,3 +1,4 @@
 ingress-nginx:
   controller:
     watchIngressWithoutClass: true
+domain: domain
