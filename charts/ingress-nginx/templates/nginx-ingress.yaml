@@ -18,7 +18,17 @@ spec:
                 name: nginx
                 port:
                   number: 80
+    - host: www.{{ $.Values.domain }}
+      http:
+        paths:
+          - pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx
+                port:
+                  number: 80
   tls:
     - hosts:
         - {{ $.Values.domain }}
+        - www.{{ $.Values.domain }}
       secretName: nginx-ing-tls
