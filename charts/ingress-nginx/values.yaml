@@ -1,4 +1,5 @@
 ingress-nginx:
   controller:
     watchIngressWithoutClass: true
+    extraArgs: { enable-ssl-passthrough: "true" }
 domain: domain
