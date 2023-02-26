@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: ghost
 spec:
-  schedule: 0 * * * *
+  schedule: 0 */8 * * *
   jobTemplate:
     spec:
       template:
