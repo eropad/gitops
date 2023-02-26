@@ -42,3 +42,8 @@ spec:
                 secretKeyRef:
                   name: ghost-creds
                   key: MAILGUN_BASE_URL
+            - name: CODE_INJECTION_HEAD
+              valueFrom:
+                secretKeyRef:
+                  name: ghost-creds
+                  key: CODE_INJECTION_HEAD
