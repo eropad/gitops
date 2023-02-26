@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: landing-page
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 8m
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
+    nginx.ingress.kubernetes.io/permanent-redirect: stories.{{ $.Values.domain }}
+spec:
+  rules:
+    - host: {{ $.Values.domain }}
+    - host: www.{{ $.Values.domain }}
+  tls:
+    - hosts:
+        - {{ $.Values.domain }}
+        - www.{{ $.Values.domain }}
+      secretName: landing-page-ing-tls
