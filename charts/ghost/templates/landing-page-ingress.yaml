@@ -10,9 +10,9 @@ metadata:
 spec:
   rules:
     - host: {{ $.Values.domain }}
-    - host: www.{{ $.Values.domain }}
+    - host: "*.{{ $.Values.domain }}"
   tls:
     - hosts:
         - {{ $.Values.domain }}
-        - www.{{ $.Values.domain }}
+        - "*.{{ $.Values.domain }}"
       secretName: landing-page-ing-tls
