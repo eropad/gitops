@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 8m
     cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/ingress-hostname-source: defined-hosts-only
-    nginx.ingress.kubernetes.io/server-snippet: return 301 https://stories.{{ $.Values.domain }}$request_uri;
+    nginx.ingress.kubernetes.io/server-snippet: return 307 $scheme://stories.{{ $.Values.domain }}$request_uri;
 spec:
   rules:
     - host: {{ $.Values.domain }}
